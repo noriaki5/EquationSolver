@@ -29,6 +29,10 @@ public class EquationSolver {
     }
 
     private boolean haveSolvation() {
-        return !(calcDiscriminant() < 0);
+        if (equation.getA() !=0 && equation.getB() == 0 && (-equation.getC() / equation.getA() < 0)) {
+            return false;
+        } else {
+            return !(calcDiscriminant() < 0);
+        }
     }
 }

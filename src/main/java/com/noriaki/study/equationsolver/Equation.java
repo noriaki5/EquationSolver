@@ -8,9 +8,7 @@ public class Equation {
     public Equation(double a, double b, double c, double y) {
         this.a = a;
         this.b = b;
-        if (y != 0) {
-            this.c = c - y;
-        }
+        this.c = y != 0 ? c - y : c;
     }
 
     public double getA() {
