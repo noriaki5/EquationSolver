@@ -4,7 +4,6 @@ public class Equation {
     private double a;
     private double b;
     private double c;
-    private double y;
 
     public Equation(double a, double b, double c, double y) {
         this.a = a;
@@ -12,8 +11,6 @@ public class Equation {
         if (y != 0) {
             this.c = c - y;
         }
-        this.c = c;
-        this.y = y;
     }
 
     public double getA() {

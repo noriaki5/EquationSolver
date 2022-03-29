@@ -9,7 +9,13 @@ public class EquationSolver {
     public List<Double> solve(Equation equation) {
         List<Double> result = new ArrayList<>();
         this.equation = equation;
-        if (haveSolvation()) {
+        if (equation.getA() == 0) {
+            if (equation.getB() != 0) {
+                double x = -equation.getC() / equation.getB();
+                result.add(x);
+            }
+        }
+        else if (haveSolvation()) {
             double x1 = (-equation.getB() + Math.sqrt(calcDiscriminant())) / (2 * equation.getA());
             double x2 = (-equation.getB() - Math.sqrt(calcDiscriminant())) / (2 * equation.getA());
             result.add(x1);
@@ -19,15 +25,10 @@ public class EquationSolver {
     }
 
     private double calcDiscriminant() {
-        double discriminant = equation.getB()*equation.getB() - 4 * equation.getA() * equation.getC();
-        return discriminant;
+        return equation.getB()*equation.getB() - 4 * equation.getA() * equation.getC();
     }
 
     private boolean haveSolvation() {
-        if (calcDiscriminant() < 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return !(calcDiscriminant() < 0);
     }
 }
